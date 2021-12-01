@@ -1,2 +1,3 @@
 # aoc2021
-again ...
+
+again ... but in rust ?
