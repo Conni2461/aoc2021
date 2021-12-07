@@ -1,5 +1,3 @@
-use std::cmp::{max, min};
-
 fn read_file(file: &str) -> Vec<i32> {
   std::fs::read_to_string(file)
     .unwrap()
@@ -19,7 +17,7 @@ fn ex1(input: &[i32]) {
   for d in 1..max_destination {
     let mut fuel = 0;
     for crab in input {
-      fuel += max(crab, &d) - min(crab, &d);
+      fuel += (crab - &d).abs();
     }
     if fuel < min_fuel {
       min_fuel = fuel;
@@ -38,7 +36,7 @@ fn ex2(input: &[i32]) {
   for d in 1..max_destination {
     let mut fuel = 0;
     for crab in input {
-      fuel += real_crab_engineering(max(crab, &d) - min(crab, &d));
+      fuel += real_crab_engineering((crab - &d).abs());
     }
     if fuel < min_fuel {
       min_fuel = fuel;
