@@ -116,7 +116,7 @@ fn ex1(input: &[Line]) {
   println!("{}", count);
 }
 
-fn main() {
-  let input = read_file("data/input");
+pub fn run() {
+  let input = read_file("data/input05");
   ex1(&input);
 }

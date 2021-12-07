@@ -63,8 +63,8 @@ fn ex2(input: &Vec<(Dir, i32)>) {
   println!("res: {}", horizontal * depth);
 }
 
-fn main() {
-  let input = read_file("data/input");
+pub fn run() {
+  let input = read_file("data/input02");
   ex1(&input);
   ex2(&input);
 }

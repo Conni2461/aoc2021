@@ -110,8 +110,8 @@ fn ex2(input: &Vec<Vec<char>>) {
   println!("{}", binary_to_decimal(&o) * binary_to_decimal(&c));
 }
 
-fn main() {
-  let input = read_file("data/input");
+pub fn run() {
+  let input = read_file("data/input03");
   ex1(&input);
   ex2(&input);
 }

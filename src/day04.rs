@@ -126,8 +126,8 @@ fn ex2(input: &Bingo) {
   println!("{}", res);
 }
 
-fn main() {
-  let input = read_file("data/input");
+pub fn run() {
+  let input = read_file("data/input04");
   ex1(&input);
   ex2(&input);
 }

@@ -35,8 +35,8 @@ fn ex2(input: &Vec<i32>) {
   println!("count: {}", count);
 }
 
-fn main() {
-  let input = read_file("data/input");
+pub fn run() {
+  let input = read_file("data/input01");
   ex1(&input);
   ex2(&input);
 }

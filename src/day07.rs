@@ -45,8 +45,8 @@ fn ex2(input: &[i32]) {
   println!("{}", min_fuel);
 }
 
-fn main() {
-  let input = read_file("data/input");
+pub fn run() {
+  let input = read_file("data/input07");
   ex1(&input);
   ex2(&input);
 }
