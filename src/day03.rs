@@ -6,7 +6,7 @@ fn read_file(file: &str) -> Vec<Vec<char>> {
     .collect()
 }
 
-fn gamma_rate(input: &Vec<Vec<char>>) -> String {
+fn gamma_rate(input: &[Vec<char>]) -> String {
   let len = input[0].len();
   let rows = input.len() as i32;
   let mut counter: Vec<i32> = vec![0; len];
@@ -41,14 +41,14 @@ fn invert_binary(bin: &str) -> String {
 }
 
 fn binary_to_decimal(bin: &str) -> i32 {
-  i32::from_str_radix(&bin, 2).unwrap()
+  i32::from_str_radix(bin, 2).unwrap()
 }
 
 fn gen_rating(
-  input: &Vec<Vec<char>>,
+  input: &[Vec<char>],
   f: impl Fn(Vec<usize>, Vec<usize>) -> Vec<usize>,
 ) -> String {
-  let mut copy = input.clone();
+  let mut copy = input.to_owned();
   let mut column: usize = 0;
   while copy.len() != 1 {
     let mut zeros = Vec::<usize>::with_capacity(copy.len());
@@ -71,31 +71,27 @@ fn gen_rating(
   copy[0].iter().collect()
 }
 
-fn oxygen(input: &Vec<Vec<char>>) -> String {
+fn oxygen(input: &[Vec<char>]) -> String {
   gen_rating(input, |z, o| {
     if z.len() > o.len() {
       o
-    } else if z.len() < o.len() {
-      z
     } else {
       z
     }
   })
 }
 
-fn co2(input: &Vec<Vec<char>>) -> String {
+fn co2(input: &[Vec<char>]) -> String {
   gen_rating(input, |z, o| {
     if z.len() > o.len() {
       z
-    } else if z.len() < o.len() {
-      o
     } else {
       o
     }
   })
 }
 
-fn ex1(input: &Vec<Vec<char>>) {
+fn ex1(input: &[Vec<char>]) {
   let gamma = gamma_rate(input);
   let epsilon = invert_binary(&gamma);
   println!(
@@ -104,7 +100,7 @@ fn ex1(input: &Vec<Vec<char>>) {
   );
 }
 
-fn ex2(input: &Vec<Vec<char>>) {
+fn ex2(input: &[Vec<char>]) {
   let o = oxygen(input);
   let c = co2(input);
   println!("{}", binary_to_decimal(&o) * binary_to_decimal(&c));

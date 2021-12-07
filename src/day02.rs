@@ -33,7 +33,7 @@ fn read_file(file: &str) -> Vec<(Dir, i32)> {
     .collect()
 }
 
-fn ex1(input: &Vec<(Dir, i32)>) {
+fn ex1(input: &[(Dir, i32)]) {
   let mut horizontal = 0;
   let mut depth = 0;
   for e in input.iter() {
@@ -46,7 +46,7 @@ fn ex1(input: &Vec<(Dir, i32)>) {
   println!("res: {}", horizontal * depth);
 }
 
-fn ex2(input: &Vec<(Dir, i32)>) {
+fn ex2(input: &[(Dir, i32)]) {
   let mut horizontal = 0;
   let mut depth = 0;
   let mut aim = 0;
